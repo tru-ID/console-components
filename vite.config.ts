@@ -18,7 +18,10 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: [...Object.keys(pkg.peerDependencies)],
+      external: [
+        ...Object.keys(pkg.peerDependencies),
+        ...Object.keys(pkg.dependencies),
+      ],
       plugins: [
         {
           ...typescript2({

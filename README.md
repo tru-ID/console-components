@@ -20,6 +20,8 @@ Before publishing run `npm version [patch|minor|major]` to bump the version. Let
 
 ### TODO
 
-Test how tu npm link locally as there are some challenges with React packages:
+Test how to npm link locally as there are some challenges with React packages:
+
 https://mcocirio.medium.com/unsolving-the-mysteries-of-yarn-npm-link-for-libraries-development-41daa51a7cc6
+
 https://blog.maximeheckel.com/posts/duplicate-dependencies-npm-link

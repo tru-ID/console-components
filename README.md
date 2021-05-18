@@ -15,7 +15,8 @@ Run `yarn build` to generate the `/dist` folder that will contain the bundled li
 ## Publish
 
 Make sure you are invited in the [`@tru_id`](https://www.npmjs.com/settings/tru_id/packages) npm org
-Run `npm version [patch|minor|major]` to bump the version. Let's try to respect semver, if there is a breaking change we should bump the major `npm version major` otherwise `npm version patch` should be fine.
+Before publishing run `npm version [patch|minor|major]` to bump the version. Let's try to respect semver, if there is a breaking change we should bump the major `npm version major` otherwise `npm version patch` should be fine.
+`npm run publish` will publish the package to npm.
 
 ### TODO
 

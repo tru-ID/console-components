@@ -1,10 +1,10 @@
-import { Box, Flex, Heading, Icon, Tooltip } from "@chakra-ui/react";
-import * as React from "react";
-import { AiFillInfoCircle } from "react-icons/ai";
+import { Box, Flex, Heading, Icon, Tooltip } from '@chakra-ui/react'
+import * as React from 'react'
+import { AiFillInfoCircle } from 'react-icons/ai'
 
 export interface BalanceProps {
   // TODO use correct type
-  workspace: any;
+  workspace: any
 }
 
 function Balance({ workspace }: BalanceProps) {
@@ -25,9 +25,9 @@ function Balance({ workspace }: BalanceProps) {
         </Box>
         <Box as="span" fontSize="lg">
           {workspace!._embedded!.balance.currency}
-          {workspace!._embedded!.balance.currency === "API" && " calls"}
+          {workspace!._embedded!.balance.currency === 'API' && ' calls'}
         </Box>
-        {workspace!._embedded!.balance.currency === "API" && (
+        {workspace!._embedded!.balance.currency === 'API' && (
           <Tooltip
             fontSize="sm"
             placement="right"
@@ -43,7 +43,7 @@ function Balance({ workspace }: BalanceProps) {
         )}
       </Flex>
     </>
-  );
+  )
 }
 
-export default Balance;
+export default Balance

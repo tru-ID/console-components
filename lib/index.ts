@@ -1,11 +1,11 @@
-import Balance from "./components/Balance";
-import DefaultCredentials from "./components/DefaultCredentials";
+import Balance from './components/Balance'
+import DefaultCredentials from './components/DefaultCredentials'
 import {
   DefaultCredentialsProvider,
   useDefaultCredentials,
-} from "./hooks/useDefaultCredentials";
-import useWorkspace from "./hooks/useWorkspace";
-import theme from "./theme";
+} from './hooks/useDefaultCredentials'
+import useWorkspace from './hooks/useWorkspace'
+import theme from './theme'
 
 export {
   theme,
@@ -17,4 +17,4 @@ export {
   useWorkspace,
   // providers
   DefaultCredentialsProvider,
-};
+}

@@ -24,7 +24,7 @@ export interface ClientSecretBoxProps {
 }
 
 function ClientSecretBox({ canResetCredentials = true }: ClientSecretBoxProps) {
-  const { clientSecret, setClientSecret } = useDefaultCredentials()
+  const credentials = useDefaultCredentials()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isResetting, setIsResetting] = useState(false)
   const cancelRef = useRef(null)
@@ -37,7 +37,7 @@ function ClientSecretBox({ canResetCredentials = true }: ClientSecretBoxProps) {
         '/api/tru/console/v0.1/workspaces/default/credentials/reset',
         null,
       )
-      setClientSecret(res.data.client_secret)
+      credentials!.setClientSecret(res.data.client_secret)
       setIsModalOpen(false)
     } catch (err) {
       toast({
@@ -54,7 +54,7 @@ function ClientSecretBox({ canResetCredentials = true }: ClientSecretBoxProps) {
   // if !canResetCredentials then it's the open source console
   // using client_credentials grant and cannot reset the client secret
   // or it will invalidate the existing session
-  if (clientSecret || !canResetCredentials) {
+  if (credentials!.clientSecret || !canResetCredentials) {
     return (
       <Code
         data-testid="client-secret-box"
@@ -62,7 +62,7 @@ function ClientSecretBox({ canResetCredentials = true }: ClientSecretBoxProps) {
         px={2}
         rounded="lg"
       >
-        {clientSecret}
+        {credentials!.clientSecret}
       </Code>
     )
   }
@@ -162,12 +162,12 @@ export default function DefaultCredentials({
 }: DefaultCredentialsProps) {
   const credentials = useDefaultCredentials()
   const { hasCopied: hasCopiedClientId, onCopy: onClientIdCopy } = useClipboard(
-    credentials.clientId || '',
+    credentials!.clientId || '',
   )
   const { hasCopied: hasCopiedClientSecret, onCopy: onClientSecretCopy } =
-    useClipboard(credentials.clientSecret || '')
+    useClipboard(credentials!.clientSecret || '')
   const { hasCopied: hasCopiedDataResidency, onCopy: onDataResidencyCopy } =
-    useClipboard(credentials.dataResidency || '')
+    useClipboard(credentials!.dataResidency || '')
   return (
     <Box>
       <Table>
@@ -181,7 +181,7 @@ export default function DefaultCredentials({
             <TableCell>
               <Box fontSize="sm" color="gray.500">
                 <Code colorScheme="blue" px={2} rounded="lg">
-                  {credentials.clientId}
+                  {credentials!.clientId}
                 </Code>
               </Box>
             </TableCell>
@@ -224,7 +224,7 @@ export default function DefaultCredentials({
             </TableCell>
             <TableCell>
               <Box fontSize="sm" color="gray.500">
-                {credentials.dataResidency}
+                {credentials!.dataResidency}
               </Box>
             </TableCell>
             <TableCell textAlign="right">

@@ -5,7 +5,7 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
   fonts: {
-    body: 'IBM Plex Sans',
+    body: 'Inter',
     heading: 'Bai Jamjuree',
     mono: 'Menlo, monospace',
   },
@@ -56,16 +56,27 @@ const theme = extendTheme({
     Heading: {
       baseStyle: {
         color: '#0A0A32',
-        fontFamily: 'Bai Jamjuree',
+        fontFamily: 'heading',
         fontWeight: '600',
+        lineHeight: '1.25em',
+      },
+    },
+    Text: {
+      baseStyle: {
+        fontFamily: 'body',
+        fontWeight: '300',
+        fontSize: '18px',
+        lineHeight: '1.5em',
       },
     },
   },
   styles: {
     global: {
       'html, body, p': {
-        fontSize: 'lg',
-        fontFamily: 'IBM Plex Sans',
+        fontSize: '18px',
+        fontWeight: '300',
+        fontFamily: 'Inter',
+        lineHeight: '1.5em',
       },
       // 'h1, h2, h3, h4, h5': {
       //   color: '#0A0A32',

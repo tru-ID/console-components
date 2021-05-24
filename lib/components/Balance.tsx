@@ -1,10 +1,10 @@
 import { Box, Flex, Heading, Icon, Tooltip } from '@chakra-ui/react'
 import * as React from 'react'
 import { AiFillInfoCircle } from 'react-icons/ai'
+import { WorkspaceResponse } from '../hooks/useWorkspace'
 
 export interface BalanceProps {
-  // TODO use correct type
-  workspace: any
+  workspace: WorkspaceResponse
 }
 
 function Balance({ workspace }: BalanceProps) {

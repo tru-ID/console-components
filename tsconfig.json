@@ -1,29 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "declaration": true,
-    "declarationDir": "dist",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": false,
     "noImplicitAny": true,
-    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "target": "ES2017",
+    "jsx": "react",
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
+    "moduleResolution": "node",
+    "declarationDir": "dist"
   },
-  "include": [
-    "./src",
-    "lib/index.ts",
-    "lib/theme.ts",
-    "lib/hooks",
-    "lib/components"
-  ]
+  "include": ["lib/index.ts", "lib/theme.ts", "lib/hooks", "lib/components"]
 }

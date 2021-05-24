@@ -3,32 +3,34 @@ import { useEffect } from 'react'
 import useSWR, { SWRConfiguration } from 'swr'
 import { useDefaultCredentials } from './useDefaultCredentials'
 
-interface UseWorkspaceProps {
-  onErrorRetry?: SWRConfiguration['onErrorRetry']
+export interface WorkspaceResponse {
+  _embedded: {
+    balance: {
+      amount_available: number
+      amount_reserved: number
+      currency: string
+    }
+  }
 }
 
-function useWorkspace({ onErrorRetry }: Partial<UseWorkspaceProps> = {}) {
-  const opts: SWRConfiguration = {}
+function useWorkspace(opts?: SWRConfiguration) {
   const fetcher = async (url: string) =>
     request.get(url).then((res) => res.data)
-  if (onErrorRetry) {
-    opts.onErrorRetry = onErrorRetry
-  }
   const { data, error } = useSWR(
     '/api/tru/console/v0.1/workspaces/default',
     fetcher,
     opts,
   )
-  const { setCredentials } = useDefaultCredentials()
+  const credentials = useDefaultCredentials()
   useEffect(() => {
     if (data?.credentials) {
-      setCredentials({
+      credentials!.setCredentials({
         clientId: data.credentials.client_id,
         clientSecret: data.credentials.client_secret,
         dataResidency: data.data_residency,
       })
     }
-  }, [data, setCredentials])
+  }, [data, credentials])
   return {
     workspace: data,
     loading: !error && !data,

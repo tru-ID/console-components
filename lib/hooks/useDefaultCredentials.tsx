@@ -13,9 +13,8 @@ export interface DefaultCredentialsContextInterface
   clearCredentials: () => void
 }
 
-const DefaultCredentialsContext = React.createContext<
-  Partial<DefaultCredentialsContextInterface>
->({})
+const DefaultCredentialsContext =
+  React.createContext<DefaultCredentialsContextInterface | null>(null)
 
 export const useDefaultCredentials = () => useContext(DefaultCredentialsContext)
 
@@ -66,9 +65,9 @@ export function DefaultCredentialsProvider({
   const clearCredentials = () => {
     localStorage.removeItem('default_workspace_client_id')
     localStorage.removeItem('default_workspace_client_secret')
-    setClientSecret(undefined)
-    setClientId(undefined)
-    setDataResidency(undefined)
+    setClientSecret('')
+    setClientId('')
+    setDataResidency('')
   }
   useEffect(() => {
     const cSecret = localStorage.getItem('default_workspace_client_secret')

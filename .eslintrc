@@ -9,7 +9,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "ignorePatterns": ["**/*.js"],
+  "ignorePatterns": ["**/*.js", "src"],
   "rules": {
     "react/jsx-props-no-spreading": "warn",
     "@typescript-eslint/indent": 0,
